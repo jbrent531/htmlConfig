@@ -1,0 +1,69 @@
+/* Development Notes _________________________________________________________________________________ Development Notes */
+
+// ________________________________________________________________________________________________ Module Compile Time Behavior
+
+#ENABLE_STACK_CHECKING
+#DEFAULT_VOLATILE
+#ENABLE_DYNAMIC                                     
+#ENABLE_TRACE
+#DEFINE_CONSTANT cDebug            1
+#CATEGORY                          "32"
+#Output_Shift                      1
+
+// _________________________________________________________________________________________________ Constants
+
+#Define_Constant c_iFileSize         65000
+#Define_Constant c_maxCharData		 128
+#Define_Constant c_maxValues		 100
+#Define_Constant c_maxInputs		 8
+
+// _________________________________________________________________________________________________ F1 Help
+
+//#HINT                              ""
+//#HELP_PDF_FILE ""
+
+// _________________________________________________________________________________________________ Libraries
+
+#includepath				"..\\bin\\Debug" 
+#user_simplsharp_library 	"htmlConfig" 
+
+// _________________________________________________________________________________________________ Simpl Input - Output
+
+digital_input start, stop;
+
+// _________________________________________________________________________________________________ Parameters
+
+Integer_Parameter			Port;
+#BEGIN_PARAMETER_PROPERTIES Port
+   	propValidUnits = unitDecimal;
+	propDefaultUnit= unitDecimal;
+#END_PARAMETER_PROPERTIES
+
+
+
+
+// _________________________________________________________________________________________________ Structure
+
+// _________________________________________________________________________________________________ Global Varibles
+
+// _________________________________________________________________________________________________ Functions
+
+
+// _________________________________________________________________________________________________ Simpl Events
+
+push start 
+{	
+	integer port;
+	port = Port; 
+	Server.startServer(); 
+}
+
+push stop
+{
+	Server.stopServer();
+}
+
+// _________________________________________________________________________________________________ Start Up Code
+
+Function Main() 
+{}
